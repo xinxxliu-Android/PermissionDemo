@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private void checkPermiss() {
 
         PermissionX.init(this)
-                .permissions(Manifest.permission.CALL_PHONE)
+                .permissions(Manifest.permission.CALL_PHONE,Manifest.permission.CAMERA)
                 .request(new RequestCallback() {
                     @Override
                     public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
