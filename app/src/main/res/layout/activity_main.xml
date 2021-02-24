@@ -6,9 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-  <androidx.appcompat.widget.AppCompatButton
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/btn_permission"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_permission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="权限申请" />
 
 </LinearLayout>
