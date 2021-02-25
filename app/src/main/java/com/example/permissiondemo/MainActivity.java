@@ -24,10 +24,11 @@ public class MainActivity extends AppCompatActivity {
         initView();
 
     }
+
     private View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.btn_permission:
                     checkPermiss();
                     break;
@@ -38,14 +39,23 @@ public class MainActivity extends AppCompatActivity {
     private void checkPermiss() {
 
         PermissionX.init(this)
-                .permissions(Manifest.permission.CALL_PHONE,Manifest.permission.CAMERA)
+                .permissions(Manifest.permission.CALL_PHONE, Manifest.permission.CAMERA)
                 .request(new RequestCallback() {
                     @Override
                     public void onResult(boolean allGranted, List<String> grantedList, List<String> deniedList) {
-                        if (allGranted){
-                            Toast.makeText(MainActivity.this, "权限申请成功!!!", Toast.LENGTH_SHORT).show();
-                        }else {
-                            Toast.makeText(MainActivity.this, "权限申请失败。", Toast.LENGTH_SHORT).show();
+                        if (allGranted) {
+//                            Toast.makeText(MainActivity.this, "权限申请成功!!!", Toast.LENGTH_SHORT).show();
+                            /**
+                             * 解决小米手机Toast显示应用名的问题
+                             */
+                            Toast toast = Toast.makeText(MainActivity.this, null, Toast.LENGTH_SHORT);
+                            toast.setText("权限申请成功");
+                            toast.show();
+                        } else {
+//                            Toast.makeText(MainActivity.this, "权限申请失败。", Toast.LENGTH_SHORT).show();
+                            Toast toast = Toast.makeText(MainActivity.this, null, Toast.LENGTH_SHORT);
+                            toast.setText("权限申请失败");
+                            toast.show();
                         }
                     }
                 });
