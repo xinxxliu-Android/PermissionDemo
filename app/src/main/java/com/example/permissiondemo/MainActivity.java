@@ -1,5 +1,6 @@
 package com.example.permissiondemo;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,7 @@ import android.Manifest;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.SparseArray;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -17,6 +19,7 @@ import com.example.permissiondemo.fragment.MineFragment;
 import com.example.permissiondemo.fragment.MumicFragment;
 import com.example.permissiondemo.fragment.VideoFragment;
 import com.example.permissiondemo.util.ThreadUtil;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.permissionx.guolindev.PermissionX;
 import com.permissionx.guolindev.callback.RequestCallback;
@@ -44,7 +47,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initListeners() {
-
+        mBottomNavigationViewEx.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switchFragment(menuItem.getItemId());
+                return true;
+            }
+        });
     }
 
     private void initView() {
