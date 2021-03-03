@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">PermissionDemo</string>
+    <string name="app_name">BottomNavigationViewDemo</string>
+    <string name="topic">话题</string>
+    <string name="article">文章</string>
+    <string name="video">视频</string>
+    <string name="mine">我的</string>
+    <string name="home">首页</string>
+    <string name="guess">猜一猜</string>
+
 </resources>
