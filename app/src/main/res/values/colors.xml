@@ -12,4 +12,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="bottom_navigation_text_highlight">#ff3b3b</color>
     <color name="bottom_navigation_text_normal">#b2b2b2</color>
+    <color name="common_text_color">#222222</color>
 </resources>
