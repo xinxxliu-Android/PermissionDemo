@@ -1,23 +1,20 @@
 package com.example.permissiondemo;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.Manifest;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.example.permissiondemo.base.BaseActivity;
 import com.example.permissiondemo.fragment.HomeFragment;
 import com.example.permissiondemo.fragment.MineFragment;
 import com.example.permissiondemo.fragment.MumicFragment;
@@ -25,13 +22,9 @@ import com.example.permissiondemo.fragment.VideoFragment;
 import com.example.permissiondemo.util.ThreadUtil;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
-import com.permissionx.guolindev.PermissionX;
-import com.permissionx.guolindev.callback.RequestCallback;
-
-import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private static final int EXIT_AFFIRM_INTERVAL = 2000;
     private BottomNavigationViewEx mBottomNavigationViewEx;
     private static final int DEFAULT_SELECTED_MENU_ITEM_POSITION = 0;
@@ -61,9 +54,13 @@ public class MainActivity extends AppCompatActivity {
                 window.setAttributes(attributes);
             }
         }
-        initView();
         initListeners();
 
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_main;
     }
 
     private void initListeners() {
@@ -76,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initView() {
+    public void initView() {
         mBottomNavigationViewEx = findViewById(R.id.bottom_navigation);
         mBottomNavigationViewEx.enableAnimation(false);
         mBottomNavigationViewEx.enableShiftingMode(false);
@@ -87,6 +84,11 @@ public class MainActivity extends AppCompatActivity {
 //        如果不调用此方法 那么首次第一个fragment不显示
         switchFragment(mBottomNavigationViewEx.getMenu().getItem(DEFAULT_SELECTED_MENU_ITEM_POSITION).getItemId());
 
+    }
+
+    @Override
+    public void initData() {
+        
     }
 
     private void switchFragment(int menuItemId) {

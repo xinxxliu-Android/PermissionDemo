@@ -5,21 +5,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.example.permissiondemo.custom.TitleBar
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:enable_rule="false"
-        app:enable_share="false"
-        app:title_color="@color/black"
-        app:show_bottom_line="false" />
 
-    <TextView
-        android:gravity="center_horizontal"
-        android:layout_marginTop="50dp"
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="首页"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        android:layout_height="140dp" />
 </LinearLayout>
